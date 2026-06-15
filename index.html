@@ -17,6 +17,7 @@
             <!-- Tab Navigation -->
             <div class="tabs">
                 <button class="tab-btn active" onclick="switchTab('calculator')">CGPA Calculator</button>
+                <button class="tab-btn" onclick="switchTab('grading')">Grading System</button>
                 <button class="tab-btn" onclick="switchTab('advisor')">Open House Advisor</button>
                 <button class="tab-btn" onclick="switchTab('history')">Results History</button>
             </div>
@@ -46,6 +47,17 @@
                         <h3>Your CGPA Results</h3>
                         <div id="resultContent"></div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Grading System Tab -->
+            <div id="grading" class="tab-content">
+                <div class="grading-section">
+                    <h2>PICT Grading System</h2>
+                    <div class="grading-info">
+                        <p>Below is the standard grading policy used at PICT (Pune Institute of Computer Technology) for calculating CGPA and SGPA.</p>
+                    </div>
+                    <div id="gradingTable" class="grading-table-container"></div>
                 </div>
             </div>
 
