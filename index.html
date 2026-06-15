@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICT CGPA Calculator & Open House Advisor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 PICT CGPA Calculator</h1>
+            <p>Calculate your CGPA and get Open House recommendations</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Tab Navigation -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('calculator')">CGPA Calculator</button>
+                <button class="tab-btn" onclick="switchTab('advisor')">Open House Advisor</button>
+                <button class="tab-btn" onclick="switchTab('history')">Results History</button>
+            </div>
+
+            <!-- CGPA Calculator Tab -->
+            <div id="calculator" class="tab-content active">
+                <div class="calculator-section">
+                    <h2>Enter Your Grades</h2>
+                    <form id="gradeForm">
+                        <div class="form-group">
+                            <label>Number of Semesters:</label>
+                            <input type="number" id="semesterCount" min="1" max="8" value="1" required>
+                            <button type="button" onclick="generateSemesterInputs()" class="btn-secondary">Generate</button>
+                        </div>
+                    </form>
+
+                    <div id="semesterInputs" class="semester-inputs">
+                        <!-- Semester inputs will be generated here -->
+                    </div>
+
+                    <div class="action-buttons">
+                        <button onclick="calculateCGPA()" class="btn-primary">Calculate CGPA</button>
+                        <button onclick="resetCalculator()" class="btn-secondary">Reset</button>
+                    </div>
+
+                    <div id="result" class="result-card" style="display: none;">
+                        <h3>Your CGPA Results</h3>
+                        <div id="resultContent"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Open House Advisor Tab -->
+            <div id="advisor" class="tab-content">
+                <div class="advisor-section">
+                    <h2>Open House Recommendations</h2>
+                    <div class="advisor-form">
+                        <div class="form-group">
+                            <label>Your Current CGPA:</label>
+                            <input type="number" id="cgpaInput" min="0" max="10" step="0.01" placeholder="e.g., 8.5">
+                        </div>
+                        <div class="form-group">
+                            <label>Current Semester:</label>
+                            <select id="semesterSelect">
+                                <option value="1">1st Semester</option>
+                                <option value="2">2nd Semester</option>
+                                <option value="3">3rd Semester</option>
+                                <option value="4">4th Semester</option>
+                                <option value="5">5th Semester</option>
+                                <option value="6">6th Semester</option>
+                                <option value="7">7th Semester</option>
+                                <option value="8">8th Semester</option>
+                            </select>
+                        </div>
+                        <button onclick="getOpenHouseAdvice()" class="btn-primary">Get Recommendations</button>
+                    </div>
+
+                    <div id="adviceResult" class="advice-card" style="display: none;">
+                        <h3>Recommended Companies</h3>
+                        <div id="adviceContent"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results History Tab -->
+            <div id="history" class="tab-content">
+                <div class="history-section">
+                    <h2>Your Calculation History</h2>
+                    <div id="historyContent" class="history-list">
+                        <p class="empty-message">No calculations yet. Start by calculating your CGPA!</p>
+                    </div>
+                    <button onclick="clearHistory()" class="btn-secondary">Clear History</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PICT CGPA Calculator | Built with ❤️ for PICT Students</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
